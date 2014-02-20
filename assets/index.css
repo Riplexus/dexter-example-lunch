@@ -132,7 +132,7 @@ input {
   margin: 0 5px 0 0;
 }
 .list .amount:after {
-  content: " &euro;";
+  content: " \20AC";
 }
 .form {
   padding: 0 5px;
