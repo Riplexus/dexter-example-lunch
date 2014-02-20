@@ -2,13 +2,21 @@ define(function() {
 
     return {
         preLoad: {
-            views: [],
+            views: [
+                'i-lunch',
+                'i-user',
+                'i-user-option',
+                'i-notification'
+            ],
             templates: [
                 'loading'
             ]
         },
 
-        global: []
+        global: [
+            'notifications',
+            'users'
+        ]
     };
 
 });
