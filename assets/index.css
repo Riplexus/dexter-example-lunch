@@ -1,0 +1,165 @@
+.cf:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+::-webkit-input-placeholder {
+  color: #959394;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 28px;
+  text-align: center;
+  font-family: Arial, Helvetica;
+}
+/* firefox 19+ */
+::-moz-placeholder {
+  color: #959394;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 28px;
+  text-align: center;
+}
+/* ie */
+:-ms-input-placeholder {
+  color: #959394;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 28px;
+  text-align: center;
+}
+input:-moz-placeholder {
+  color: #959394;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 28px;
+  text-align: center;
+}
+/* SELECT STYLE HACK */
+.selectwrapper {
+  width: 50%;
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+  padding: 0 10px 0 0;
+  height: 27px;
+  border-bottom: 1px solid #353938;
+}
+.selectwrapper select {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.01;
+}
+.selectwrapper p {
+  margin: 0;
+  padding: 1px 5px 0;
+  width: 100%;
+  text-align: center;
+  background: #ffffff;
+  color: #959394;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 26px;
+  font-family: Arial, Helvetica;
+  white-space: nowrap;
+}
+.selectwrapper p i {
+  float: right;
+  line-height: 21px;
+  margin-right: 5px;
+}
+/* SELECT STYLE HACK END */
+html,
+body {
+  background-color: #f0f4f3;
+  background-image: url('/assets/imgs/salad.jpg');
+  background-size: cover;
+  margin: 0;
+  font-family: Arial, Helvetica;
+  font-weight: 100;
+  font-size: 12px;
+  color: #0d0b0c;
+  height: 100%;
+}
+h2 {
+  display: inline-block;
+  font-weight: 200;
+  font-size: 16px;
+  margin: 10px 0 0;
+  padding: 5px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+button {
+  float: right;
+  margin: 0 5px;
+  padding: 0;
+  border: 0;
+  line-height: 28px;
+  width: 25%;
+  color: #ffffff;
+  font-weight: 100;
+  font-size: 12px;
+  font-family: Arial, Helvetica;
+  background: #20b2aa;
+}
+button.no {
+  background: #df4d55;
+}
+input {
+  margin: 0 5px;
+  padding: 0 5px;
+  color: #0d0b0c;
+  line-height: 27px;
+  font-weight: 100;
+  font-size: 12px;
+  width: 50%;
+  border: 0;
+  border-bottom: 1px solid #353938;
+}
+.list {
+  background: #ffffff;
+  border-bottom: 1px solid #959394;
+  padding: 0 5px;
+  margin: 0;
+  line-height: 28px;
+}
+.list .empty {
+  color: #959394;
+}
+.list .amount {
+  float: right;
+  margin: 0 5px 0 0;
+}
+.list .amount:after {
+  content: " €";
+}
+.form {
+  padding: 0 5px;
+  margin: 0;
+  background: #353938;
+}
+.form input:first-child {
+  border-top: 1px solid #353938;
+}
+.notifications {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+.notifications div {
+  background: #20b2aa;
+  opacity: 0.9;
+  padding: 10px;
+  color: #ffffff;
+}
+.avatar {
+  float: left;
+  margin: 2px 5px 0;
+  background-size: cover;
+  text-indent: -9999px;
+  width: 24px;
+  height: 24px;
+}
