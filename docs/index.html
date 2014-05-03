@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Dexter Index</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	
+	<link type="text/css" rel="stylesheet" href="styles/site.readable.css">
+	
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+			<a class="brand" href="index.html">Dexter</a>
+			<ul class="nav">
+				
+				<li class="dropdown">
+					<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu inline">
+						
+						<li>
+							<a href="Lunch.html">Lunch</a>
+						</li>
+						
+						<li>
+							<a href="Lunches.html">Lunches</a>
+						</li>
+						
+						<li>
+							<a href="LunchesCreateView.html">LunchesCreateView</a>
+						</li>
+						
+						<li>
+							<a href="LunchesView.html">LunchesView</a>
+						</li>
+						
+						<li>
+							<a href="LunchItemView.html">LunchItemView</a>
+						</li>
+						
+						<li>
+							<a href="Notification.html">Notification</a>
+						</li>
+						
+						<li>
+							<a href="NotificationItemView.html">NotificationItemView</a>
+						</li>
+						
+						<li>
+							<a href="Notifications.html">Notifications</a>
+						</li>
+						
+						<li>
+							<a href="NotificationsView.html">NotificationsView</a>
+						</li>
+						
+						<li>
+							<a href="State.html">State</a>
+						</li>
+						
+						<li>
+							<a href="User.html">User</a>
+						</li>
+						
+						<li>
+							<a href="UserItemView.html">UserItemView</a>
+						</li>
+						
+						<li>
+							<a href="UserOptionItemView.html">UserOptionItemView</a>
+						</li>
+						
+						<li>
+							<a href="Users.html">Users</a>
+						</li>
+						
+						<li>
+							<a href="UsersCreateView.html">UsersCreateView</a>
+						</li>
+						
+						<li>
+							<a href="UsersOption.html">UsersOption</a>
+						</li>
+						
+						<li>
+							<a href="UsersView.html">UsersView</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu inline">
+						
+						<li>
+							<a href="global.html#config">config</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+
+		
+		<div class="span8">
+			
+				<div id="main">
+					
+
+
+	
+	<span class="page-title">Index</span>
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+    <section>
+        <article><h1 id="dexter">Dexter</h1>
+<p>Dexter is a full featured framework with <a href="https://github.com/documentcloud/backbone/">Backbone.js</a> and <a href="http://epoxyjs.org/">Epoxy.js</a>, <a href="https://github.com/jrburke/requirejs">RequireJS</a> and other libraries useful for 
+the development of responsive Single Page Applications and Mobile Web Apps. It adds a few ideas of its own and 
+maintains high flexibility, but primarily provides a neat All-in-One package to start the development of your 
+application right after <code>make install</code>.</p>
+<h3 id="views">Views</h3>
+<pre><code class="lang-javascript">// file: /js/views/myView.js
+define([ /* ... */ ], function(dXView) {
+    return dXView.extend({
+        dXName: 'myView',
+    });
+});</code></pre>
+<pre><code class="lang-html">&lt;!-- file: /templates/myView.html --&gt;
+&lt;p&gt;Minions ipsum gelatooo tulaliloo tank yuuu!&lt;/p&gt;</code></pre>
+<pre><code class="lang-html">&lt;!-- file: /index.html --&gt;
+&lt;!-- ... --&gt;
+&lt;section data-dX='myView'&gt;&lt;/section&gt;
+&lt;!-- ... --&gt;</code></pre>
+<h4 id="global-views">Global Views</h4>
+<p>independent, defined in configs/dexter.conf.js, automatically loaded by the router on init</p>
+<h4 id="routed-views">Routed Views</h4>
+<p>defined in routes.conf.js, will be loaded on navigation</p>
+<h4 id="subviews">Subviews</h4>
+<p>Each view can incorporate any number of other views.</p>
+<pre><code class="lang-javascript">define([ /* ... */ ], function(dXView) {
+
+    return dXView.extend({
+        dXName: 'myView',
+        dXSubViews: ['mySubView'],
+    });
+
+});</code></pre>
+<pre><code class="lang-html">&lt;!-- file: /templates/myView.html --&gt;
+&lt;p&gt;Hello again! I'm injecting one of the other views to reuse some work!&lt;/p&gt;
+&lt;div id=&quot;subView&quot;&gt;&lt;/div&gt;</code></pre>
+<p>Views used as subviews can itself again contain subviews. One warning though, don't use too deep constructs to maintain
+high performance, subviews will be rendered after the parent view to fulfill dependencies on DOM nodes and can slow
+the application.</p>
+<h4 id="item-views">Item Views</h4>
+<p>used in collections, preloaded in configs/dexter.conf.js</p>
+<h3 id="data-binding">Data Binding</h3>
+<p>dXView extends Backbone.Epoxy.View from <a href="http://epoxyjs.org/">Epoxy.js</a>, thus we can use that neat Data Binding to seamlessly 
+update our views, if the data changes.</p>
+<pre><code class="lang-javascript">// file: /js/views/myView.js
+define([/* ... */], function(/* ... */) {
+
+    return dXView.extend({
+        dXName: 'myView',
+        model: new AuthorModel(),
+
+        bindings: {
+            '.name': 'text:fullName',
+            '.desc': 'html:desc',
+            'a': 'attr:{href:url(id)}'
+        },
+
+        computeds: {
+            fullName: function() {
+                return this.getBinding('firstName')+' '+
+                    this.getBinding('lastName');
+            }
+        },
+
+        bindingFilters: {
+            url: function(id) {
+                return '/profile/'+id;
+            }
+        }
+    });
+});</code></pre>
+<p>This is just a sneak peak of the possibilities, for the full documentation see <a href="http://epoxyjs.org/">Epoxy.js</a>.</p>
+<h3 id="templating">Templating</h3>
+<p>If you want, you can use any templating engine beside the dynamic bindings mentioned above for static data. The dXView 
+class provides a method called dXTemplateRenderer, which can be overwritten.</p>
+<pre><code class="lang-javascript">define([
+    // ...
+    'mustache',
+    'views/dXView'
+], function(Mustache, dXView) {
+
+    // ...
+    // Somewhere in your code, for example in your /js/app.js init method
+    dXView.prototype.dXTemplateRenderer = function(template, data) {
+        return Mustache.render(template, data);
+    };</code></pre>
+<p>To send data to the Renderer set either an object or a function returning an object on dXTemplateData.</p>
+<pre><code class="lang-javascript">// file: /js/views/myView.js
+define([
+    // ...
+    'views/dXView'
+], function(dXView) {
+
+    return dXView.extend({
+        dXName: 'myView',
+
+        dXTemplateData: {
+            &quot;extUrl&quot;: &quot;http://www.google.com&quot;
+        }
+    });</code></pre>
+<p>The example branch uses <a href="http://mustache.github.io/">Mustache</a> to show one of many possible and easy solutions.</p>
+<h3 id="states">States</h3>
+<p>One of the key features of DX is the native integration of <a href="https://github.com/jonathan-fielding/SimpleStateManager/">Simple State Manager</a> for responsive JavaScript execution 
+and seamless template and stylesheet replacement.</p>
+<p>States are defined by the minimum page width of the user window. You can target, for example, mobile, tablet 
+and desktop clients or differentiate between screen orientations.</p>
+<pre><code class="lang-javascript">// file: /configs/states.conf.js
+define(function() {
+    return {
+        // &lt;state name&gt;: &lt;minimum page width&gt;
+        'Mobile': 767,
+        'Desktop': 9999,
+        'Tablet': 1023
+    }
+});</code></pre>
+<h4 id="responsive-javascript">Responsive JavaScript</h4>
+<p>If you extend the provided dXResponsiveView, you get an enter method and can execute appropriate JavaScript 
+code for each state.</p>
+<p>Responsive views will leave and reenter on state change.</p>
+<pre><code class="lang-javascript">// file: /js/views/myResponsiveView.js
+define([ /* ... */ ], function(dXResponsiveView) {
+
+    return dXResponsiveView.extend({
+        dXName: 'myResponsiveView',
+
+        enter: function() {
+            // Default behaviour, will be called for every state first
+        },
+
+        enterMobile: function() {
+            // For mobile only
+        },
+
+        enterTablet: function() {
+            // For tablets only
+        },
+
+        enterDesktop: function() {
+            // For big desktop only
+        }
+    });
+
+});</code></pre>
+<pre><code class="lang-html">&lt;!-- file: /templates/myResponsiveView.html --&gt;
+&lt;p&gt;I'm more fancy than the boring basic view.&lt;/p&gt;</code></pre>
+<h4 id="state-dependent-templates">State dependent templates</h4>
+<h4 id="state-dependent-stylesheets">State dependent stylesheets</h4>
+<h3 id="dependent-view-loading">Dependent view loading</h3>
+<p>Global, Routed and Subviews can be different for each user agent. The navigation, for example, should follow a different
+style guide and behave differently on android than on iOS. Dexter allows you to simply use keywords on the entry
+points of view declaration to fulfill this often used requirement.</p>
+<pre><code class="lang-javascript">// file: /js/views/myView.js
+define([ /* ... */ ], function(dXView) {
+    return dXView.extend({
+        dXName: 'myView',
+        dXSubViews: [
+            'android!navigation'
+            'iOS!navigation'
+        ],
+    });
+});</code></pre>
+<pre><code class="lang-javascript">// file: /configs/dexter.conf.js
+define(function() {
+    return {
+        // ...
+        global: [
+            'android!navigation',
+            'iOS!navigation'
+        ]
+    };
+});</code></pre>
+<pre><code class="lang-javascript">// file: /configs/routes.conf.js
+define(function() {
+    return {
+        // ...
+        'user': 'iOS!user',
+        'profile': [
+            'android!profile',
+            'iOS!profile',
+        ]
+    };
+});</code></pre>
+<p>If no definition is found for the current user system, it omits the first keyword (e.g. &quot;android!navigation&quot; -&gt; &quot;navigation&quot;).
+Deeper and more specific declarations have priority (&quot;android!navigation&quot; &gt; &quot;navigation&quot;).</p>
+<p>The specific views and templates must be named equally and have to be stored in corresponding folders:</p>
+<pre><code class="lang-bash">/js/views/  
+|- android/  
+|--- navigation.js  
+|- iOS/  
+|--- navigation.js</code></pre>
+<pre><code class="lang-bash">/templates/  
+|- android/  
+|--- navigation.html  
+|- iOS/  
+|--- navigation.html</code></pre>
+<p>Hint: If you just want to differ simple js statements instead of whole views, you can use libs/is for the same system
+checks used here.</p>
+<h4 id="currently-supported-keywords">Currently supported keywords</h4>
+<ul>
+<li>android</li>
+<li>iOS</li>
+<li>blackBerry</li>
+<li>windowsPhone</li>
+<li>mobile (For every OS listed above)</li>
+<li>desktop (not mobile)</li>
+</ul>
+<p>If you want to create custom keywords, you can just add a new test in libs/is, the key is your new keyword.
+Note that this feature is not responsive, thus a full reload is needed if the result of your test changes and you want
+it to take effect.</p>
+<h3 id="shim-polyfill-support">Shim / Polyfill support</h3>
+<p>To enhance the use of shims / polyfills, DX provides a plugin for requireJS. Combined with the awesome <a href="http://modernizr.com/">Modernizr</a>, 
+it delivers a powerful conditional loader.</p>
+<pre><code class="lang-javascript">define([
+    'shim!Array.prototype.indexOf',
+    'shim!Modernizr.history'
+], function() {
+    // ...
+});</code></pre>
+<p>If one of the required features are not present, it tries to load a corresponding *.shim.js file from /js/libs.
+In our example, it will load /js/libs/indexOf.shim.js and /js/libs/history.shim.js for viewer 1 on IE 8 and
+since Chrome supports both features, it will load no additional files for viewer 2 on Chrome.</p>
+<p>You can easily create your own shims by placing a *.shim.js file under /js/libs:</p>
+<pre><code class="lang-javascript">// file: /js/libs/console.shim.js
+define(function() {
+
+    window.console = {
+        log: function() {},
+        error: function() {},
+        warn: function() {},
+        trace: function() {}
+    };
+
+    return true;
+});
+
+// Anywhere in your code:
+define(['shim!console'], function() {
+    console.log(&quot;I'm a teapot!&quot;);
+});</code></pre>
+<h3 id="pipe-event-emitter">Pipe event emitter</h3>
+<p>One of the problems we often see is the (mostly previously unknown) requirement to send data from one module to
+another across half of your application. To maintain flexibility, reduce the amount of object
+references between each other and prevent complicated tree traversal, every DX prototype is connected to an 
+Event Emitter. Imagine the Warp Zone in Super Mario Bros. They connect different worlds
+and places so you can send any data (like yourself) from one opening to the other, simply by providing the
+desired world number on your package.</p>
+<pre><code class="lang-javascript">// file: /js/views/world1-2.js
+dXView.extend({
+    //...
+    enter: function() {
+        this.dXPipe.emit('jump', 4);
+    },
+});</code></pre>
+<pre><code class="lang-javascript">// file: /js/models/mario.js
+Mario = dXModel.extend({
+    //...
+    initialize: function() {
+        //...
+        this.dXPipe.on('jump', function(target) {
+            Mario.set('world', target);
+        })
+    }
+});</code></pre>
+<h4 id="events">Events</h4>
+<ul>
+<li>enter/:dXName</li>
+<li>enter/:state/:dXName</li>
+<li>leave/:dXName</li>
+<li>dXRouter/goTo</li>
+</ul>
+<h3 id="folder-structure">Folder structure</h3>
+<pre><code class="lang-bash">|- assets/  
+|- configs/  
+|- js/  
+|--- collections/  
+|--- libs/  
+|--- models/  
+|--- plugins/  
+|--- tests/  
+|--- views/  
+|- templates/  
+|- index.html</code></pre>
+<h3 id="install-script">Install script</h3>
+<h3 id="debugging">Debugging</h3>
+<p>Dexter uses a <a href="https://github.com/visionmedia/debug">Debug</a> utility based on ideas from node.js for easy and powerful output. To enable full report,
+simply execute the following in any browser console, the setting will be stored in localStorage:</p>
+<pre><code class="lang-javascript">debug.enable('*');</code></pre>
+<p>Quick usage:</p>
+<pre><code class="lang-javascript">var log = require('libs/debug')('myModule');
+
+log('message'/* , ...*/);</code></pre>
+<p>Custom colors for an improved console overview (if supported by the browser):</p>
+<pre><code class="lang-javascript">// file: /configs/debug.conf.js
+define(function() {
+    return {
+        colors: {
+            'green': '#22DD22'
+        }
+    };
+});</code></pre>
+<p>The colors will be provided to the logger as methods:</p>
+<pre><code class="lang-javascript">log.green('message'/* , ...*/);</code></pre>
+<p>You should definitely check out the project home (<a href="https://github.com/visionmedia/debug">Debug</a>) for more information about this useful tool.</p>
+<h3 id="testing">Testing</h3>
+<p>We provide a pre-configured <a href="http://karma-runner.github.io/0.8/index.html">Karma</a> file (using <a href="http://jasmine.github.io/">Jasmine</a> as testing framework) and activated code coverage. Put
+your tests under /js/tests and you are ready to go!</p>
+<p>Start Karma and run every test:</p>
+<pre><code class="lang-bash">make test</code></pre>
+<p>Don't forget to update /configs/karma.conf.js and the /js/tests/test-main.js entry point if you include new libraries
+in your project.</p>
+<h3 id="documentation">Documentation</h3>
+<p>If you want to use JSDoc for automated documentation, you can easily do so with the available configuration
+file under /configs/. You can compile it with the provided template or your own by declaring the path in the
+/configs/jsdoc.json or by replacing the content of /docs/template.</p>
+<h2 id="libraries-used-in-this-framework">Libraries used in this framework</h2>
+<ul>
+<li><a href="https://github.com/documentcloud/backbone/">Backbone.js</a><ul>
+<li>Underscore</li>
+<li><a href="http://epoxyjs.org/">Epoxy.js</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/jrburke/requirejs">RequireJS</a><ul>
+<li>Text Plugin</li>
+<li>RequireJS-plugins</li>
+</ul>
+</li>
+<li><a href="http://jquery.com/">jQuery</a></li>
+<li><a href="http://modernizr.com/">Modernizr</a></li>
+<li><a href="https://github.com/hij1nx/EventEmitter2">EventEmitter2</a></li>
+<li><a href="https://github.com/jonathan-fielding/SimpleStateManager/">Simple State Manager</a></li>
+<li><a href="https://github.com/visionmedia/debug">Debug</a></li>
+</ul>
+<h2 id="in-development">In Development</h2>
+<ul>
+<li>Extend backbone.js Router</li>
+<li>Script: automatic installation of new components</li>
+<li>Script: create a new view</li>
+<li>CSS: css file loading via javascript, without media queries, dependent on current state</li>
+<li>HTML: template loading via plugin, dependent on current state</li>
+<li>Filesystem cached main-build.js?</li>
+</ul>
+<h2 id="special-thanks-to-">Special thanks to:</h2>
+<ul>
+<li>The contributors of <a href="https://github.com/documentcloud/backbone/">Backbone.js</a></li>
+<li><a href="https://github.com/jrburke">James Burke</a> for the beloved <a href="https://github.com/jrburke/requirejs">RequireJS</a></li>
+<li><a href="https://github.com/jonathan-fielding">Jonathan Fielding</a> for his very nice <a href="https://github.com/jonathan-fielding/SimpleStateManager/">Simple State Manager</a></li>
+</ul>
+<p>and of course every contributor of the libraries listed above, awesome work!</p>
+<h2 id="license">License</h2>
+<p>(MIT)</p>
+<p>Copyright (c) 2014 BörseGo AG, http://www.boerse-go.ag</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p></article>
+    </section>
+
+
+
+
+
+
+
+				</div>
+
+				<div class="clearfix"></div>
+				<footer>
+					
+					
+		<span class="jsdoc-message">
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-dev</a>
+		on Sat May 03 2014 13:25:21 GMT+0200 (CEST) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		</span>
+				</footer>
+			</div>
+
+			
+			<div class="span3">
+				<div id="toc"></div>
+			</div>
+			
+			<br clear="both">
+		</div>
+
+	</div>
+	<script src="scripts/sunlight.js"></script>
+	<script src="scripts/sunlight.javascript.js"></script>
+	<script src="scripts/sunlight-plugin.doclinks.js"></script>
+	<script src="scripts/sunlight-plugin.linenumbers.js"></script>
+	<script src="scripts/sunlight-plugin.menu.js"></script>
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery.scrollTo.js"></script>
+	<script src="scripts/jquery.localScroll.js"></script>
+	<script src="scripts/bootstrap-dropdown.js"></script>
+	<script src="scripts/toc.js"></script>
+
+
+	<script>  Sunlight.highlightAll({lineNumbers:true,  showMenu: true, enableDoclinks :true}); </script>
+
+	<script>
+		$( function () {
+			$( "#toc" ).toc( {
+				selectors   : "h1,h2,h3,h4",
+				showAndHide : false,
+				scrollTo    : 60
+			} );
+			$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+			$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+
+		} );
+	</script>
+
+	
+
+</body>
+</html>
