@@ -1,5 +1,5 @@
 define([
-    'views/dXView',
+    'dX/View',
     'models/state',
     'collections/users-option'
 ], function(

@@ -1,8 +1,8 @@
 define([
-    'collections/dXCollection',
+    'dX/Collection',
     'models/notification',
     'views/i-notification',
-    'shim!Function.prototype.bind'
+    'dX/Shim!Function.prototype.bind'
 ], function(
     dXCollection,
     NotificationModel,

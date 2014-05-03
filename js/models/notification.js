@@ -1,5 +1,5 @@
 define([
-    'models/dXModel'
+    'dX/Model'
 ], function(
     dXModel
 ) {

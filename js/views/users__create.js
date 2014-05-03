@@ -1,5 +1,5 @@
 define([
-    'views/dXView',
+    'dX/View',
     'models/state'
 ], function(
     dXView,

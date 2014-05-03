@@ -1,7 +1,7 @@
 define([
-    'views/dXView',
+    'dX/View',
     'collections/notifications',
-    'shim!Function.prototype.bind'
+    'dX/Shim!Function.prototype.bind'
 ], function(
     dXView,
     NotificationsCollection

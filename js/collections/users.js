@@ -1,5 +1,5 @@
 define([
-    'collections/dXCollection',
+    'dX/Collection',
     'models/user',
     'views/i-user'
 ], function(
@@ -27,6 +27,8 @@ define([
             
             this.dXPipe.on('users/add', this.add.bind(this));
             this.dXPipe.on('users/remove', this.remove.bind(this));
-        }
+        },
+        
+        urlRoot: 'http://euve21281.vserver.de/lunchies/users'
     });
 });

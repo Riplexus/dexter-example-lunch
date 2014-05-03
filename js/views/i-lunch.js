@@ -1,5 +1,5 @@
 define([
-    'views/dXItem',
+    'dX/ItemView',
     'libs/md5'
 ], function(
     dXItemView,

@@ -1,5 +1,5 @@
 define([
-    'views/dXView',
+    'dX/View',
     'collections/users'
 ], function(
     dXView,

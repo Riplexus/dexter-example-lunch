@@ -1,8 +1,8 @@
 define([
-    'collections/dXCollection',
+    'dX/Collection',
     'models/lunch',
     'views/i-lunch',
-    'shim!Function.prototype.bind'
+    'dX/Shim!Function.prototype.bind'
 ], function(
     dXCollection,
     LunchModel,

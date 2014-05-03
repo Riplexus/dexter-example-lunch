@@ -1,5 +1,5 @@
 define([
-    'models/dXModel'
+    'dX/Model'
 ], function(
     dXModel
 ) {
@@ -15,6 +15,7 @@ define([
             firstName: '',
             lastName: '',
             gravatar: ''
-        }
+        },
+        urlRoot: 'http://euve21281.vserver.de/lunchies/user/'
     });
 });

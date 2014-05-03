@@ -1,5 +1,5 @@
 define([
-    'models/dXModel'
+    'dX/Model'
 ], function(
     dXModel
 ) {
@@ -12,8 +12,16 @@ define([
 
     return dXModel.extend(/** @lends Lunch.prototype */{
         defaults: {
+            userId: null,
             user: null,
             amount: 0
+        },
+        
+        initialize: function() {
+            dXModel.prototype.initialize.call(this);
+            this.set('userId', this.get('user').get('id'));
+            
+            console.log(this);
         }
     });
 });
